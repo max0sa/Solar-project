@@ -31,7 +31,7 @@ int main(){
                 printf("Seleccione un opcion: ");
                 scanf("%d", &opcion2);
 
-                switch (opcion2) { // orto submenu 
+                switch (opcion2) { // otro submenu 
                     case 1: // por ejemplo: si se escoge 1 hara lo siguiente o como un if (opcion1 == 1)
                     printf("Elegiste paneles Monocristalinos\n");
                     break;
