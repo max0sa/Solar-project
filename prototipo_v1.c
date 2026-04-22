@@ -10,12 +10,12 @@ int main(){
     do{   /* abro un ciclo para poder utilizarlo en el menu principal cada vez que se inicie
          el programa o salga de un "submenu" aparecera */
         printf("\n___________MENU___________\n");
-        printf("1.Tipos de paneles solares\n"); // le doy al usuario alternativas enumeradas
-        printf("2.ingresar consumo electrico\n");                                     // para poder que pueda navegar
+        printf("1.Tipos de paneles solares\n");            // le doy al usuario alternativas enumeradas
+        printf("2.ingresar consumo electrico\n");          // para poder que pueda navegar
         printf("3.calcular cantidad de paneles\n");
         printf("4.estimar costo\n");
         printf("5.ver resumen\n");
-        printf("0.SALIR\n"); // use un siclo con la condicion (opcion1 != 0) por lo que al escoger 0 deja de iterar
+        printf("0.SALIR\n"); // use un ciclo con la condicion (opcion1 != 0) por lo que al escoger 0 deja de iterar
         printf("Seleccione una opcion: ");
         scanf("%d", &opcion1);
 
