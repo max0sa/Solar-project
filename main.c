@@ -1,5 +1,15 @@
 #include "calculadora.h"
 
+int opcion1;
+int opcion2;
+int panel_selec;
+double consumo;
+double cobertura;
+double consumoAcubrir;
+double prodPanel;
+double prodPanelxDia;
+double totalN;
+
 int main(){
 
     struct panel paneles[10] ={
@@ -15,9 +25,7 @@ int main(){
         {"Sine Energy", "policristalino", "standard poly",340, 16.2, 128990},
     };
 
-    int opcion1;
-    int opcion2;
-    int panel_selec;
+ 
 //lo siguiente corresponde a el mennu de la calculadora //
     printf("Bienvenido a Solar Proyect");
 
@@ -70,6 +78,20 @@ int main(){
 
             }while(opcion2 != 0);
 
+            break;
+
+            case 2: // ingresar consumo eléctrico
+            
+            printf("Ingrese su consumo mensual (kW): ");
+            scanf("%d", &consumo);
+            printf("Ingrese que porcentaje de su consumo desea cubrir: ");
+            scanf("%d", &cobertura);
+            
+            break;
+
+            case 3://calcular numero de paneles
+            calcularNpaneles(consumo, panel_selec, cobertura, paneles);
+            return totalN;
             break;
 
             case 0:

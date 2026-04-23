@@ -10,11 +10,21 @@ struct panel {
     int precio;
 };
 
-// funciones necesarias por implementar
+extern int opcion1;
+extern int opcion2;
+extern int panel_selec;
+extern double consumo;
+extern double cobertura;
+extern double consumoAcubrir;
+extern double prodPanel;
+extern double prodPanelxDia;
+extern double totalN;
+
+
 
 void mostrarPaneles(struct panel paneles[], int n, int tipo);
 int seleccionarPanel();
-int calcularNpaneles(int consumo, int panel_selec);
+int calcularNpaneles(int consumo, int panel_selec, int cobertura, struct panel paneles[]);
 int calcularCosto(struct panel paneles[], int n_panel, int cantidad);
 void mostrarREsumen(struct panel paneles[], int n_panel, int cantidad, int costo);
 

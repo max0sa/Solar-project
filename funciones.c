@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <string.h>
 # include "calculadora.h"
-
 
 
 void mostrarPaneles(struct panel paneles[], int n, int tipo){
@@ -30,5 +27,20 @@ void mostrarPaneles(struct panel paneles[], int n, int tipo){
             printf("\n%d. Panel solar %d watts %s %s (%s)\n", i+1, paneles[i].potencia, paneles[i].nombre, paneles[i].tecnologia, paneles[i].tipo_panel);
             printf("_________________________________________________________________\n");
         }
+    }
+}
+
+int calcularNpaneles(int consumo, int panel_selec, int cobertura, struct panel paneles[]){
+    if(panel_selec >= 1 && panel_selec <= 10 ){
+       cobertura = cobertura /100.0;
+        consumoAcubrir = consumo * cobertura;
+        prodPanel = paneles[panel_selec - 1].potencia;
+        prodPanelxDia = 4.0 * (paneles[panel_selec - 1].potencia / 1000.0);  // el 4 es por un promedio de horas pico de sol(max rendimiento)
+        totalN = (consumoAcubrir / 30.0) / (prodPanelxDia *1.25);
+        printf("Se necesitan %f paneles", totalN);
+
+    }
+        else{
+        printf("Seleccione un panel primero");
     }
 }
