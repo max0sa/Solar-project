@@ -33,6 +33,10 @@ void mostrarPaneles(struct panel paneles[], int n, int tipo){
 int seleccionarPanel(){
     printf("Seleccione el panel que desea utilizar (1-10): ");
     scanf("%d", &panel_selec);
+    if (panel_selec < 1 || panel_selec > 10) {
+        printf("Opción inválida. Por favor, seleccione un número entre 1 y 10.\n");
+        return -1; // Retorna -1 para indicar una selección inválida
+    }
     return panel_selec;
 }
 
