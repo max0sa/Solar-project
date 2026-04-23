@@ -44,3 +44,14 @@ int calcularNpaneles(int consumo, int panel_selec, int cobertura, struct panel p
         printf("Seleccione un panel primero");
     }
 }
+
+int calcularCosto(struct panel paneles[], int n_panel, int cantidad){
+    
+
+
+
+
+
+
+
+}
