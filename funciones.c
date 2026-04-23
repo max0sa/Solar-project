@@ -52,8 +52,15 @@ int calcularNpaneles(int consumo, int panel_selec, int cobertura, struct panel p
     }
 }
 
-int calcularCosto(struct panel paneles[], int n_panel, int cantidad){
-    
+int calcularCosto(struct panel paneles[], int n_panel, int cantidad) {
+    int costoTotal = 0;
+
+  
+    costoTotal = paneles[n_panel - 1].precio * cantidad;
+
+  
+    return costoTotal;
+}
 
 
 
