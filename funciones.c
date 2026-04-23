@@ -30,6 +30,12 @@ void mostrarPaneles(struct panel paneles[], int n, int tipo){
     }
 }
 
+int seleccionarPanel(){
+    printf("Seleccione el panel que desea utilizar (1-10): ");
+    scanf("%d", &panel_selec);
+    return panel_selec;
+}
+
 int calcularNpaneles(int consumo, int panel_selec, int cobertura, struct panel paneles[]){
     if(panel_selec >= 1 && panel_selec <= 10 ){
        cobertura = cobertura /100.0;
