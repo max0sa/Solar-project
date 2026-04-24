@@ -7,7 +7,7 @@
   - Cristóbal Arriagada / invvestigador/organizador
 
 ## Problematica a resolver 
-Con la ayuda de este proyecto, se facilitaria a un tecnico la manera de ofrecer sus servicios de instalacion de paneles fotovoltaicos, ahorrando tiempo en el calculo de el presupuesto correspondiente, y ayudando a trasnparentar el costo a sus respectivos clientes.
+Con la ayuda de este proyecto, se le facilita a un tecnico la manera de ofrecer sus servicios de instalacion de paneles fotovoltaicos, ahorrando tiempo en el calculo de el presupuesto correspondiente, y ayudando a trasnparentar el costo a sus respectivos clientes.
 
 ## Objetivo General
 Facilitar la planificación para técnicos y clientes en proyectos de energía solar.
