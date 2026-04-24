@@ -4,7 +4,7 @@
   - Maximiliano Ossa / Programación
   - José Cntreras / 
   - Maximiliano Lizana / 
-  - Cristóbal Arriagada / 
+  - Cristóbal Arriagada / invvestigador/organizador
 
 ## Objetivo General
 Facilitar la planificación para técnicos y clientes en proyectos de energía solar.
