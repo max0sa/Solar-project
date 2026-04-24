@@ -1,6 +1,5 @@
 # include "calculadora.h"
 
-
 void mostrarPaneles(struct panel paneles[], int n, int tipo){
 
     if (tipo == 1){
@@ -33,26 +32,24 @@ void mostrarPaneles(struct panel paneles[], int n, int tipo){
 int seleccionarPanel(){
     printf("Seleccione el panel que desea utilizar (1-10): ");
     scanf("%d", &panel_selec);
-    if (panel_selec < 1 || panel_selec > 10) {
-        printf("Opción inválida. Por favor, seleccione un número entre 1 y 10.\n");
-        return -1; // Retorna -1 para indicar una selección inválida
-    }
     return panel_selec;
 }
 
-int calcularNpaneles(int consumo, int panel_selec, int cobertura, struct panel paneles[]){
+
+double calcularNpaneles(double consumo, int panel_selec, double cobertura, struct panel paneles[]){
     if(panel_selec >= 1 && panel_selec <= 10 ){
        cobertura = cobertura /100.0;
         consumoAcubrir = consumo * cobertura;
         prodPanel = paneles[panel_selec - 1].potencia;
         prodPanelxDia = 4.0 * (paneles[panel_selec - 1].potencia / 1000.0);  // el 4 es por un promedio de horas pico de sol(max rendimiento)
         totalN = (consumoAcubrir / 30.0) / (prodPanelxDia *1.25);
-        printf("Se necesitan %f paneles", totalN);
-
-    }
-        else{
-        printf("Seleccione un panel primero");
-    }
+        printf("Se necesitan %.2f paneles\n", totalN);
+        
+        return totalN;}
+    
+    else{
+    printf("Seleccione un panel primero\n");
+    return 0;}
 }
 
 int calcularCosto(struct panel paneles[], int n_panel, int cantidad) {
