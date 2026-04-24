@@ -1,13 +1,13 @@
 # Solar-project
 
 ## Integrantes / Roles
-  - Maximiliano Ossa / programador
-  - José Cntreras / 
+  - Maximiliano Ossa / programador jefe
+  - José Contreras / programador
   - Maximiliano Lizana / programador
-  - Cristóbal Arriagada / invvestigador/organizador
+  - Cristóbal Arriagada / investigador/organizador
 
 ## Problematica a resolver 
-Con la ayuda de este proyecto, se le facilita a un tecnico la manera de ofrecer sus servicios de instalacion de paneles fotovoltaicos, ahorrando tiempo en el calculo de el presupuesto correspondiente, y ayudando a trasnparentar el costo a sus respectivos clientes.
+Con la ayuda de este proyecto, se le facilita a un técnico la manera de ofrecer sus servicios de instalación de paneles fotovoltaicos, ahorrando tiempo en el calculo de el presupuesto correspondiente, y ayudando a transparentar el costo a sus respectivos clientes.
 
 ## Objetivo General
 Facilitar la planificación para técnicos y clientes en proyectos de energía solar.
@@ -15,7 +15,7 @@ Facilitar la planificación para técnicos y clientes en proyectos de energía s
 
 ## Objetivos Específicos
   - Investigar sobre los distintos tipo de paneles solares, sus tecnologías, potencia y precios. Fuentes: [Solartex](https://www.solartex.cl), 
-  [Esol](https://www.esol.cl).
+  [Esol](https://www.esol.cl), [autosolar](https://autosolar.pe/energia-solar/como-calcular-cuantos-paneles-solares-necesito?srsltid=AfmBOoqR19ASezeJkz16LaOKjeK1gAOIw2qrbcLmPp_cxOOwcTVlU4cM).
   - Desarrollar una interfaz de funcionamiento mediante consola que permita al asuario poder navegar a través de las funcionalidades del
     programa.
   - Desarrollar función _mostrarPaneles_.
@@ -42,9 +42,11 @@ en las propias funcionalidades del programa.
 En el primer sprint se logró avanzar en la interfaz de navegación, logrando que el usuario a través de la terminal pueda interactuar y tenga la posibilidad de 
 escoger las distintas funcionalidades.
 
+
 En el segundo sprint se logró avanzar en la funcion _mostrarPaneles_ (opción 1 de la interfaz) que permitió al usuario ver la categoría de paneles solares y luego 
 mostrar el tipo de panel con su respectiva tecnología y potencia.
 
+En el tercer sprint se logró completar la opción 2 (Ingresar consumo) y las funciones _calcularNpaneles_ (opción 3), _calcularCosto_ (opción 4), _mostrarResumen_ (opción 5).
+
 ## Pasos a seguir hito 2
-Para el próximo hito se buscará terminar las funciones restantes, aplicar retroalimentaciones de profesores/ayudantes, trasladar el proyecto al lenguaje de 
-programación C++ y empezar a trabajar en una interfaz más amigable y fácil de uso para el usuario.
+Para el próximo hito se plantea crear nuevas funciones según como vaya progresando el proyecto y las necesidades que estas implican, aplicar retroalimentaciones de profesores/ayudantes, trasladar el proyecto al lenguaje de programación C++ y empezar a trabajar en una interfaz más amigable y fácil de uso para el usuario.
