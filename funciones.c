@@ -70,7 +70,7 @@ int calcularCosto(struct panel paneles[], int n_panel, int cantidad) {
 
 void mostrarREsumen(struct panel paneles[], int n_panel, int cantidad, int costo) {
     printf("\n==========================================\n"); // imprimimos linea vacia
-    printf("           RESUMEN DEL PROYECTO           \n");
+    printf("           COSTO PANELES           \n");
     printf("==========================================\n");// imprimimos linea vacia
 
     printf("Panel seleccionado:  %s\n", paneles[n_panel - 1].nombre); // Accedemos a los datos del panel seleccionado
