@@ -83,15 +83,14 @@ int main(){
             case 2: // ingresar consumo eléctrico
             
             printf("Ingrese su consumo mensual (kW): ");
-            scanf("%d", &consumo);
+            scanf("%lf", &consumo);
             printf("Ingrese que porcentaje de su consumo desea cubrir: ");
-            scanf("%d", &cobertura);
+            scanf("%lf", &cobertura);
             
             break;
 
             case 3://calcular numero de paneles
-            calcularNpaneles(consumo, panel_selec, cobertura, paneles);
-            return totalN;
+            totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles);
             break;
 
             case 0:
