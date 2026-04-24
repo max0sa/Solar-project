@@ -30,42 +30,42 @@ void mostrarPaneles(struct panel paneles[], int n, int tipo){
     }
 }
 
-int seleccionarPanel(){
+int seleccionarPanel(struct panel paneles[]){
     printf("Seleccione el panel que desea utilizar (1-10): ");
     scanf("%d", &panel_selec);
-    return panel_selec;
+    if (panel_selec >= 1 && panel_selec <= 10){
+        printf("Usted a escogido la opcion %d ", panel_selec);
+    }
+    else{
+        printf("Eleccion no valida por favor usar una de las opciones disponibles");
+    }
+
 }
 
 
-int calcularNpaneles(int consumo, int panel_selec, int cobertura, struct panel paneles[]){
+int calcularNpaneles(int consumo, int panel_selec, double cobertura, struct panel paneles[],int lugar){
+    double horas_pico [14] = {4.554, 4.828, 4.346, 4.258, 3.570, 3.520, 3.676,3.672, 3.475, 3.076, 2.626,2.603, 2.107,1.563}; // horas pico de sol segun la región
     if(panel_selec >= 1 && panel_selec <= 10 ){
-       cobertura = cobertura /100.0;
+       
+        cobertura = cobertura / 100.0;
         consumoAcubrir = consumo * cobertura;
         prodPanel = paneles[panel_selec - 1].potencia;
-        prodPanelxDia = 4.0 * (paneles[panel_selec - 1].potencia / 1000.0);  // el 4 es por un promedio de horas pico de sol(max rendimiento)
+        prodPanelxDia = horas_pico[lugar - 1] * (paneles[panel_selec - 1].potencia / 1000.0);  
         totalN = (consumoAcubrir / 30.0) / (prodPanelxDia *1.25);
-        printf("Se necesitan %f paneles", totalN);
+        totalN = ceil(totalN);
+        printf("Se necesitan %.0f paneles\n", totalN);
+
+       if (lugar < 1 || lugar > 14){
+        printf("zona invalida por favor selecionar una de las zonas disponibles\n");
+       }
 
     }
-        else{
+    else{
         printf("Seleccione un panel primero");
     }
 }
 
 int calcularCosto(struct panel paneles[], int n_panel, int cantidad) {
-    int costoTotal = 0;
-
-  
     costoTotal = paneles[n_panel - 1].precio * cantidad;
-
-  
-    return costoTotal;
-}
-
-
-
-
-
-
 
 }
