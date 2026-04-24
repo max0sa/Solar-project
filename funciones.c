@@ -62,11 +62,26 @@ int calcularCosto(struct panel paneles[], int n_panel, int cantidad) {
     costoTotal = paneles[n_panel - 1].precio * cantidad;
     return costoTotal;}
     else{
-        printf("error")}
+        printf("error")
+            }
             
 }
 
 
+void mostrarREsumen(struct panel paneles[], int n_panel, int cantidad, int costo) {
+    printf("\n==========================================\n"); // imprimimos linea vacia
+    printf("           RESUMEN DEL PROYECTO           \n");
+    printf("==========================================\n");// imprimimos linea vacia
 
-
+    printf("Panel seleccionado:  %s\n", paneles[n_panel - 1].nombre); // Accedemos a los datos del panel seleccionado
+    printf("Tipo de panel:       %s\n", paneles[n_panel - 1].tipo_panel);
+    printf("Tecnologia:          %s\n", paneles[n_panel - 1].tecnologia);
+    printf("Potencia unitaria:   %d W\n", paneles[n_panel - 1].potencia);
+    
+    printf("------------------------------------------\n");// imprimimos linea vacia
+    printf("Cantidad de paneles: %d unidades\n", cantidad);
+    printf("Costo total:         $%d\n", costo);
+    printf("==========================================\n");// imprimimos linea vacia
 }
+
+
