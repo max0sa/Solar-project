@@ -30,10 +30,9 @@ Facilitar la planificación para técnicos y clientes en proyectos de energía s
 Se plantea que el programa cuente con las siguientes funcionalidades:
 
   - Mostrar el catálogo de paneles con sus respectivos precios, potencia y su tipo de tecnología.
-  - Calcular el número de paneles solares que se necesitan en base al consumo de energía que quiere cubrir
-    el usuario y el tipo de panel que necesita.
+  - Calcular el número de paneles solares que se necesitan en base al consumo de energía que requiere cubrir el usuario, el promedio de las horas pico de sol en la región en la que se quiere implementar el          panel solar y el tipo de panel que se desea implementar. 
   - Calcular el costo aproximado del proyecto, basados en los precios del mercado.
-  - Mostrar un resumen de lo cotizado por el usuario.
+  - Mostrar un resumen de lo calculado.
 
 ## Avances hito 1
 En este hito se buscó avanzar en la interfaz de navegación para el usuario, donde pueda acceder a las distintas funcionalidades antes mencionadas y avanzar
@@ -42,11 +41,17 @@ en las propias funcionalidades del programa.
 En el primer sprint se logró avanzar en la interfaz de navegación, logrando que el usuario a través de la terminal pueda interactuar y tenga la posibilidad de 
 escoger las distintas funcionalidades.
 
-
 En el segundo sprint se logró avanzar en la funcion _mostrarPaneles_ (opción 1 de la interfaz) que permitió al usuario ver la categoría de paneles solares y luego 
 mostrar el tipo de panel con su respectiva tecnología y potencia.
 
 En el tercer sprint se logró completar la opción 2 (Ingresar consumo) y las funciones _calcularNpaneles_ (opción 3), _calcularCosto_ (opción 4), _mostrarResumen_ (opción 5).
+
+## Instrucciones de compilamiento
+Pasos a seguir para ejecutar el programa:
+
+1- `git main.c funciones.c -o main -lm`
+
+2- `./main`
 
 ## Pasos a seguir hito 2
 Para el próximo hito se plantea crear nuevas funciones según como vaya progresando el proyecto y las necesidades que estas implican, aplicar retroalimentaciones de profesores/ayudantes, trasladar el proyecto al lenguaje de programación C++ y empezar a trabajar en una interfaz más amigable y fácil de uso para el usuario.
