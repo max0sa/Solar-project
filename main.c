@@ -97,6 +97,10 @@ int main(){
                 double costo = calcularCosto(paneles, panel_selec, totalN);
                 break;
 
+            case 5:
+                mostrarREsumen(paneles, panel_selec, totalN, costo);
+                break;
+
             case 0:
                 printf(".....Hasta pronto.....\n");
                 break;

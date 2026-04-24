@@ -61,4 +61,20 @@ double calcularCosto(struct panel paneles[], int panel_selec, double totalN) {
     return costoTotal;}
     else{
         printf("error");
-            }}
+            }
+        }
+void mostrarREsumen(struct panel paneles[], int panel_selec, double totalN, double costo){
+    printf("\n==========================================\n"); // linea vacia
+    printf("           COSTO PANELES           \n");
+    printf("==========================================\n");// linea vacia
+
+    printf("Panel seleccionado:  %s\n", paneles[panel_selec - 1].nombre); // Accedemos a los datos del panel seleccionado
+    printf("Tipo de panel:       %s\n", paneles[panel_selec - 1].tipo_panel);
+    printf("Tecnologia:          %s\n", paneles[panel_selec - 1].tecnologia);
+    printf("Potencia unitaria:   %d W\n", paneles[panel_selec - 1].potencia);
+    
+    printf("------------------------------------------\n");// linea vacia
+    printf("Cantidad de paneles: %.2f unidades\n", totalN);
+    printf("Costo total:         $%.2f\n", costo);
+    printf("==========================================\n");//  linea vacia
+}

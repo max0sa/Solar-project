@@ -26,5 +26,5 @@ void mostrarPaneles(struct panel paneles[], int n, int tipo);
 int seleccionarPanel();
 double calcularNpaneles(double consumo, int panel_selec, double cobertura, struct panel paneles[]);
 double calcularCosto(struct panel paneles[], int panel_selec, double totalN);
-void mostrarREsumen(struct panel paneles[], int n_panel, int cantidad, int costo);
+void mostrarREsumen(struct panel paneles[], int panel_selec, double totalN, double costo);
 
