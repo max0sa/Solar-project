@@ -68,12 +68,12 @@ int main(){
                     break;
 
                     case 0:
-                    printf("Volviendo al menu principal\n"); /* al terminar el ciclo al estar dentro del ciclo 
+                    printf("\n-Volviendo al menu principal-\n"); /* al terminar el ciclo al estar dentro del ciclo 
                                                       del menu principal volvera a iterarse el menu principal */
                     break;
                     
                     default:
-                    printf("No existe esa opcion\n");
+                    printf("\n**No existe esa opcion**\n");
 
                 }
 
@@ -83,11 +83,21 @@ int main(){
 
             case 2: // ingresar consumo eléctrico
             
-            printf("Ingrese su consumo mensual (kW): ");
-            scanf("%lf", &consumo);
-            printf("Ingrese que porcentaje de su consumo desea cubrir: ");
-            scanf("%lf", &cobertura);
-            
+            do{
+                printf("\nIngrese su consumo mensual (kW): ");
+                scanf("%lf", &consumo);
+                if (consumo <= 0){
+                    printf("\n**no se pueden ingresar consumos negativos o nulos**\n");
+                }
+            } while (consumo <= 0);
+
+            do{
+                printf("\nIngrese que porcentaje de su consumo desea cubrir: ");
+                scanf("%lf", &cobertura);
+                if (cobertura < 10 || cobertura > 100){
+                    printf("\n**la cobertura debe ser entre 10-100**\n");
+                }
+            } while (cobertura < 10 || cobertura > 100);
             break;
 
             case 3://calcular numero de paneles
@@ -113,50 +123,52 @@ int main(){
 
                 switch (opcion3){
                     case 1:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 2:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 3:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 4:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 5:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 6:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 7:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 8:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 9:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 10:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 11:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 12:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 13:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 14:
-                    calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
+                    totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles, opcion3);
                     break;
                     case 0:
-                    printf("Volviendo al menu principal\n");
+                    printf("-Volviendo al menu principal-\n");
                     break;
+                    default:
+                    printf("\n**No existe esa opcion**\n");
 
                 }
 
@@ -165,18 +177,19 @@ int main(){
             break;
 
             case 4:
-            calcularCosto(paneles, panel_selec, totalN);
-            printf("el costo estimado de solo los paneles seria de $%d", costoTotal);
+            costoTotal = calcularCosto(paneles, panel_selec, totalN);
             break;
 
             case 5:
+            mostrarResumen(paneles, panel_selec, totalN, costoTotal);
+            break;
             
             case 0:
-                printf(".....Hasta pronto.....\n");
+                printf("\n.....Hasta pronto.....\n");
                 break;
 
             default:
-                printf("No existe esa opcion\n");
+                printf("**No existe esa opcion**\n");
         }
     } while (opcion1 != 0);
 
