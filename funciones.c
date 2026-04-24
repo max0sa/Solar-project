@@ -58,9 +58,12 @@ int calcularNpaneles(int consumo, int panel_selec, int cobertura, struct panel p
 int calcularCosto(struct panel paneles[], int n_panel, int cantidad) {
     
     int costoTotal = 0;
-    for(int i=0; if i<
+    if(int n_panel=!0){
     costoTotal = paneles[n_panel - 1].precio * cantidad;
-    return costoTotal;
+    return costoTotal;}
+    else{
+        printf("error")}
+            
 }
 
 
