@@ -93,7 +93,8 @@ int main(){
             break;
 
             case 4:
-                printf("HOLA");
+                printf("hola \n");
+                double costo = calcularCosto(paneles, panel_selec, totalN);
                 break;
 
             case 0:
