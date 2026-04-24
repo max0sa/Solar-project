@@ -1,9 +1,9 @@
 # Solar-project
 
 ## Integrantes / Roles
-  - Maximiliano Ossa / Programación
+  - Maximiliano Ossa / programador
   - José Cntreras / 
-  - Maximiliano Lizana / 
+  - Maximiliano Lizana / programador
   - Cristóbal Arriagada / invvestigador/organizador
 
 ## Objetivo General
