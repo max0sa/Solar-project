@@ -14,9 +14,9 @@ Facilitar la planificación para técnicos y clientes en proyectos de energía s
 
 
 ## Objetivos Específicos
-  - Investigar sobre los distintos tipo de paneles solares, sus tecnologías, potencia y precios. Fuentes: [Solartex](https://www.solartex.cl), 
+  - Investigar sobre los distintos tipos de paneles solares, sus tecnologías, potencia y precios. Fuentes: [Solartex](https://www.solartex.cl), 
   [Esol](https://www.esol.cl), [autosolar](https://autosolar.pe/energia-solar/como-calcular-cuantos-paneles-solares-necesito?srsltid=AfmBOoqR19ASezeJkz16LaOKjeK1gAOIw2qrbcLmPp_cxOOwcTVlU4cM).
-  - Desarrollar una interfaz de funcionamiento mediante consola que permita al asuario poder navegar a través de las funcionalidades del
+  - Desarrollar una interfaz de funcionamiento mediante consola que permita al usuario poder navegar a través de las funcionalidades del
     programa.
   - Desarrollar función _mostrarPaneles_.
   - Desarrollar función _calcularNpaneles_.
@@ -24,7 +24,7 @@ Facilitar la planificación para técnicos y clientes en proyectos de energía s
   - Desarrollar función _mostrarResumen_.
   - Traslado proyecto al lenguaje C++.
   - Desarrollar interfaz visual.
-  - Desarrollar base de datos para que el usario guarde sus proyectos.
+  - Desarrollar base de datos para que el usuario guarde sus proyectos.
 
 ## Funcionalidades
 Se plantea que el programa cuente con las siguientes funcionalidades:
