@@ -27,6 +27,5 @@ extern int costoTotal;
 void mostrarPaneles(struct panel paneles[], int n, int tipo);
 int seleccionarPanel(struct panel paneles[]);
 int calcularNpaneles(int consumo, int panel_selec, double cobertura, struct panel paneles[],int lugar);
-int calcularCosto(struct panel paneles[], int n_panel, int cantidad);
-void mostrarREsumen(struct panel paneles[], int n_panel, int cantidad, int costo);
-
+double calcularCosto(struct panel paneles[], int panel_selec, double totalN);
+void mostrarResumen(struct panel paneles[], int panel_selec, double totalN, double costo);
