@@ -67,8 +67,7 @@ int main(){
                     break;
 
                     case 0:
-                    printf("Volviendo al menu principal\n"); /* al terminar el ciclo al estar dentro del ciclo 
-                                                      del menu principal volvera a iterarse el menu principal */
+                    printf(".....Hasta pronto.....\n"); 
                     break;
                     
                     default:
@@ -93,6 +92,10 @@ int main(){
             totalN = calcularNpaneles(consumo, panel_selec, cobertura, paneles);
             break;
 
+            case 4:
+                printf("HOLA");
+                break;
+
             case 0:
                 printf(".....Hasta pronto.....\n");
                 break;
@@ -102,5 +105,4 @@ int main(){
         }
     } while (opcion1 != 0);
 
-    return 0;
-}
+    return 0;}

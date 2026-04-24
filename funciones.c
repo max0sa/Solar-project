@@ -53,32 +53,9 @@ double calcularNpaneles(double consumo, int panel_selec, double cobertura, struc
 }
 
 int calcularCosto(struct panel paneles[], int n_panel, int cantidad) {
-    
     int costoTotal = 0;
-    if(int n_panel=!0){
+
     costoTotal = paneles[n_panel - 1].precio * cantidad;
-    return costoTotal;}
-    else{
-        printf("error")
-            }
-            
+
+    return costoTotal;
 }
-
-
-void mostrarREsumen(struct panel paneles[], int n_panel, int cantidad, int costo) {
-    printf("\n==========================================\n"); // linea vacia
-    printf("           COSTO PANELES           \n");
-    printf("==========================================\n");// linea vacia
-
-    printf("Panel seleccionado:  %s\n", paneles[n_panel - 1].nombre); // Accedemos a los datos del panel seleccionado
-    printf("Tipo de panel:       %s\n", paneles[n_panel - 1].tipo_panel);
-    printf("Tecnologia:          %s\n", paneles[n_panel - 1].tecnologia);
-    printf("Potencia unitaria:   %d W\n", paneles[n_panel - 1].potencia);
-    
-    printf("------------------------------------------\n");// linea vacia
-    printf("Cantidad de paneles: %d unidades\n", cantidad);
-    printf("Costo total:         $%d\n", costo);
-    printf("==========================================\n");//  linea vacia
-}
-
-
