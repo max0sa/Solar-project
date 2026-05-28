@@ -44,10 +44,12 @@ int bateria::getPrecio(){
     return precio;
 }
 
-inversor::inversor(std::string n, int m, int pr){
+inversor::inversor(std::string n, int m, int pr, int i, int mp){
     nombre = n;
     maxpotencia = m;
     precio = pr;
+    imax = i;
+    mppt = mp;
 }
 
 std::string inversor::getNombre(){
@@ -58,6 +60,12 @@ int inversor::getMaxpoteencia(){
 }
 int inversor::getPrecio(){
     return precio;
+}
+int inversor::getImax(){
+    return imax;
+}
+int inversor::getMppt(){
+    return mppt;
 }
 
 void mostrarPaneles(panel paneles[], int n, int opcionTipo){
@@ -174,3 +182,21 @@ int calcularBaterias(bateria baterias[],int consumo, double cobertura, int capac
     std::cout<<"se necesitan "<<Nbaterias<<" baterias"<<std::endl;
     return Nbaterias;
 }
+int potenciaTotalSistema(int consumo, int lugar){    
+    double horas_pico[14] = {4.554, 4.828, 4.346, 4.258, 3.570, 3.520, 3.676,3.672, 3.475, 3.076, 2.626,2.603, 2.107,1.563};   
+    double factorRendimiento = 0.77;
+    double potencia = consumo/(factorRendimiento * horas_pico[lugar - 1]);
+    return potencia;
+    }
+
+int calcularInversores(panel paneles[],int consumo, int lugar, double cobertura, int panel_selc, int inversorSelec, inversor inversores[]){
+    double potencia = potenciaTotalSistema(consumo, lugar);
+    int nPaneles = calcularNpaneles(paneles,consumo,cobertura,panel_selc,lugar);
+    double pReal = nPaneles * (paneles[panel_selc -1].getPotencia()  /1000.0);//ptoencia real instalada
+    double maxPanelesSerie = inversores[inversorSelec -1].getMaxpoteencia()/35; //calculado con el voltaje máximo que el panel puede generar
+    int stringsTotales = nPaneles/maxPanelesSerie; //cantidad de hileras de paneles del proyecto
+    int maxStringParalelo = inversores[inversorSelec -1].getImax()/15; //limite de cadenas en paralelo por cada entrada MPPT
+    int capacidadInv = maxStringParalelo * inversores[inversorSelec - 1].getMppt();//capacidad de strings que puede recibir solo un inversor    
+    int nInversores = stringsTotales/capacidadInv; //total de inversores 
+    return nInversores;
+    }

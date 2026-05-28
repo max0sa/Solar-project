@@ -33,8 +33,8 @@ int main(){
     };
 
     class inversor inversores[2]={
-        inversor("Voltronic 3kW", 3000, 320000),
-        inversor("Growatt 5kW", 5000, 580000),
+        inversor("Voltronic 3kW", 3000, 320000,27,1),
+        inversor("Growatt 5kW", 5000, 580000,13,2),
     };
 
     std::cout<<"Bienvenido a Solar Proyect\n";

@@ -42,11 +42,15 @@ class inversor{
         std::string nombre;
         int maxpotencia;
         int precio;
+        int imax;
+        int mppt;
     public: 
-        inversor(std::string n, int m, int pr);
+        inversor(std::string n, int m, int pr, int i, int mppt);
         std::string getNombre();
         int getMaxpoteencia();
         int getPrecio();
+        int getImax();
+        int getMppt();
 };
 
 void mostrarPaneles(panel paneles[], int n, int opcionTipo);
