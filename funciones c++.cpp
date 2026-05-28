@@ -168,8 +168,9 @@ int calcularBaterias(bateria baterias[],int consumo, double cobertura, int capac
     int Nbaterias;
     cobertura = cobertura/100.0;
     coberturaXcubrir = (consumo /cobertura)/30.0; // divido en 30 ya que los calculos que vi eran en dias y el consumo que se entrega es al mes y 30 es el promedio
-    Nbaterias = ceil(coberturaXcubrir/(baterias[bateria_selc].getCapacidad()*0.60)); // el 0.60 es por la "descarga segura de la bateria o profundidad de descarga" que al 
-    //final es un porcentaje de la bateria que es la que se descarga ya que si se descarga al 100% todo el tiempo las baterias se dañan mas rapido//
+    Nbaterias = ceil((coberturaXcubrir * 1.25)/(baterias[bateria_selc].getCapacidad()*0.60)); // el 0.60 es por la "descarga segura de la bateria o profundidad de descarga" que al 
+    //final es un porcentaje de la bateria que es la que se descarga ya que si se descarga al 100% todo el tiempo las baterias se dañan mas rapido y el 1.25 es por posibles perdidas de energia del
+    //sistema ya que en la formula se ve como "factor de correccion".
     std::cout<<"se necesitan "<<Nbaterias<<" baterias"<<std::endl;
     return Nbaterias;
 }
