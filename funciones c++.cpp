@@ -110,9 +110,11 @@ int seleccionarPanel(panel paneles[]){
     std::cin>>seleccion;
     if(seleccion<=10 && seleccion >=1){
         std::cout<<"seleccion registrada"<<std::endl;
+        return seleccion;
     }
     else{
         std::cout<<"Error: Seleccione una opcion valida"<<std::endl;
+        return -1;
     }
 }
 
@@ -122,9 +124,11 @@ int seleccionarBateria(bateria baterias[]){
     std::cin>>seleccion;
     if(seleccion<=2 && seleccion >=1){
         std::cout<<"seleccion registrada"<<std::endl;
+        return seleccion;
     }
     else{
         std::cout<<"Error: Seleccione una opcion valida"<<std::endl;
+        return -1
     }
 }
 
@@ -134,8 +138,28 @@ int seleccionarInversores(inversor inversores[]){
     std::cin>>seleccion;
     if(seleccion<=2 && seleccion >=1){
         std::cout<<"seleccion registrada"<<std::endl;
+        return seleccion
     }
     else{
         std::cout<<"Error: Seleccione una opcion valida"<<std::endl;
+        return -1;
     }
+}
+
+int calcularNpaneles(panel paneles[], int consumo,double cobertura, int panel_selc, int lugar){
+    double horas_pico[14] = {4.554, 4.828, 4.346, 4.258, 3.570, 3.520, 3.676,3.672, 3.475, 3.076, 2.626,2.603, 2.107,1.563}; // horas pico de sol segun la región
+    if(panel_selc <= 1 && panel_selc >= 10 ){
+        std::cout<<"Seleccione un panel primero \n";
+        return -1;
+    }
+    if(lugar < 1 || lugar > 14){
+        std::cout<< "zona invalida por favor selecionar una de las zonas disponibles\n";
+        return -1;
+    }
+    cobertura = cobertura/100.0;
+    double consumoAcubrir = consumo * cobertura; // consumo energetico que se tiene que cubrir
+    double PPD = horas_pico[lugar - 1] * (paneles[panel_selc -1].getPotencia()  /1000.0); //Potencia del panel por dia en promedio
+    double PN = (consumoAcubrir/30.0) / (PPD*1.25); //Paneles necesarios
+    std::cout << "se necesitan " << PN << "  paneles \n";
+    return PN;
 }
