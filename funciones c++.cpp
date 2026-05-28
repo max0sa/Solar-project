@@ -160,6 +160,16 @@ int calcularNpaneles(panel paneles[], int consumo,double cobertura, int panel_se
     double consumoAcubrir = consumo * cobertura; // consumo energetico que se tiene que cubrir
     double PPD = horas_pico[lugar - 1] * (paneles[panel_selc -1].getPotencia()  /1000.0); //Potencia del panel por dia en promedio
     double PN = (consumoAcubrir/30.0) / (PPD*1.25); //Paneles necesarios
-    std::cout << "se necesitan " << PN << "  paneles \n";
+    std::cout << "se necesitan " << PN << " paneles" <<std::endl;
     return PN;
+}
+int calcularBaterias(bateria baterias[],int consumo, double cobertura, int capacidadBateria, int bateria_selc){
+    double coberturaXcubrir;
+    int Nbaterias;
+    cobertura = cobertura/100.0;
+    coberturaXcubrir = (consumo /cobertura)/30.0; // divido en 30 ya que los calculos que vi eran en dias y el consumo que se entrega es al mes y 30 es el promedio
+    Nbaterias = ceil(coberturaXcubrir/(baterias[bateria_selc].getCapacidad()*0.60)); // el 0.60 es por la "descarga segura de la bateria o profundidad de descarga" que al 
+    //final es un porcentaje de la bateria que es la que se descarga ya que si se descarga al 100% todo el tiempo las baterias se dañan mas rapido//
+    std::cout<<"se necesitan "<<Nbaterias<<" baterias"<<std::endl;
+    return Nbaterias;
 }

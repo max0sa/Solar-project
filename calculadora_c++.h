@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class panel{
     private:
@@ -62,7 +63,7 @@ int seleccionarInversores(inversor inversores[]);
 
 int calcularNpaneles(panel paneles[], int consumo,double cobertura, int panel_selc, int lugar);
 
-int calcularBaterias(bateria baterias[],int consumo, int capacidadBateria, int bateria_selc);
+int calcularBaterias(bateria baterias[],int consumo,double cobertura, int capacidadBateria, int bateria_selc);
 
 int calcularInversores(inversor ibversores[], int potensiaSis, int potenciaInversor, int inversor_select);
 
