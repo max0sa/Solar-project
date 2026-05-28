@@ -28,8 +28,8 @@ int main(){
     };
 
     class bateria baterias[2]={
-        bateria("Gel Deep Cycle", 1200, 115000),
-        bateria("Litio Pylontech",2400, 480000),
+        bateria("Deep Cycle", "gel",1200, 115000),
+        bateria("Pylontech","litio",2400, 480000),
     };
 
     class inversor inversores[2]={
@@ -46,8 +46,9 @@ int main(){
         std::cout<<"3.Seleccionar bateria\n";
         std::cout<<"4.Seleccionar inversor\n";
         std::cout<<"5.Calcular cantidad de paneles\n";
-        std::cout<<"6.Calcular costo\n";
-        std::cout<<"7.Mostrar resumen\n";
+        std::cout<<"6.Mostrar cantidades\n";
+        std::cout<<"7.Calcular costo\n";
+        std::cout<<"8.Mostrar resumen\n";
         std::cout<<"0.SALIR\n";
         std::cout<<"Seleccione una opcion: ";
         std::cin>>opcion1;
@@ -146,12 +147,18 @@ int main(){
                 }while(opcion3 != 0);
                 break;
 
-            case 6:  //Calcular costo
+            case 6:  //Mostrar cantidades
+            totalBaterias = calcularBaterias(baterias, consumo, cobertura,bateriaSelec);
+            totalInversores =calcularInversores(inversores,potensiaSis,inversorSelec);
+            mostrarCantidades(paneles, baterias, inversores, panelSelec, bateriaSelec, inversorSelec, totalPaneles, totalBaterias, totalInversores);
+            break;
+
+            case 7:  //Calcular costo
             valorTotal = calcularCosto(paneles, baterias, inversores,panelSelec, bateriaSelec, inversorSelec, totalPaneles, totalBaterias, totalInversores);
             std::cout << "El costo total es: "<<valorTotal<<"%\n";
             break;
 
-            case 7: //mostrar resumen
+            case 8: //mostrar resumen
             mostrarResumen(paneles, baterias, inversores, panelSelec, bateriaSelec, inversorSelec, totalPaneles, totalBaterias, totalInversores,valorTotal);
             break;
             
@@ -167,4 +174,3 @@ int main(){
 
     return 0;
 }
-

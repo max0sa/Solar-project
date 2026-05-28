@@ -28,14 +28,18 @@ int panel::getPrecio(){
     return precio;
 }
 
-bateria::bateria(std::string n, int c, int pr){
+bateria::bateria(std::string n, std::string m, int c, int pr){
     nombre = n;
+    material = m;
     capacidad= c;
     precio = pr;
 }
 
 std::string bateria::getNombre(){
     return nombre;
+}
+std::string bateria::getmaterial(){
+    return material;
 }
 int bateria::getCapacidad(){
     return capacidad;
@@ -91,7 +95,7 @@ void mostrarPaneles(panel paneles[], int n, int opcionTipo){
 void mostrarBaterias(bateria baterias[], int n){
     std::cout<<"\n----------------baterias----------------\n";
     for (int i = 0; i < n; i++){
-        std::cout<<"bateria "<<baterias[i].getNombre()<<" de "<<baterias[i].getCapacidad()<<" watts  $"<<baterias[i].getPrecio()<<std::endl;
+        std::cout<<"bateria "<<baterias[i].getNombre()<<" de "<<baterias[i].getCapacidad()<<" watts"<<std::endl;
         std::cout<<"___________________________________________"<<std::endl;
     }
 }
@@ -99,7 +103,7 @@ void mostrarBaterias(bateria baterias[], int n){
 void mostrarInversore(inversor inversores[], int n){
     std::cout<<"\n----------------inversores----------------\n";
     for (int i = 0; i < n; i++){
-        std::cout<<"bateria "<<inversores[i].getNombre()<<" de "<<inversores[i].getMaxpoteencia()<<" watts  $"<<inversores[i].getPrecio()<<std::endl;
+        std::cout<<"inversor "<<inversores[i].getNombre()<<" de "<<inversores[i].getMaxpoteencia()<<" watts"<<std::endl;
         std::cout<<"_______________________________________________"<<std::endl;
     }
 }
@@ -163,14 +167,58 @@ int calcularNpaneles(panel paneles[], int consumo,double cobertura, int panel_se
     std::cout << "se necesitan " << PN << " paneles" <<std::endl;
     return PN;
 }
+
 int calcularBaterias(bateria baterias[],int consumo, double cobertura, int capacidadBateria, int bateria_selc){
     double coberturaXcubrir;
     int Nbaterias;
     cobertura = cobertura/100.0;
     coberturaXcubrir = (consumo /cobertura)/30.0; // divido en 30 ya que los calculos que vi eran en dias y el consumo que se entrega es al mes y 30 es el promedio
-    Nbaterias = ceil((coberturaXcubrir * 1.25)/(baterias[bateria_selc].getCapacidad()*0.60)); // el 0.60 es por la "descarga segura de la bateria o profundidad de descarga" que al 
-    //final es un porcentaje de la bateria que es la que se descarga ya que si se descarga al 100% todo el tiempo las baterias se dañan mas rapido y el 1.25 es por posibles perdidas de energia del
-    //sistema ya que en la formula se ve como "factor de correccion".
+    if(baterias[bateria_selc].getmaterial() == "gel"){
+        Nbaterias = ceil((coberturaXcubrir * 1.25)/(baterias[bateria_selc].getCapacidad()*0.60)); // el 1.25 es por posibles perdidas de energia del sistema ya que en la formula se ve como "factor de correccion"
+                                                                                                // y el 0.60 es por la profundidad de descarga en gel es de entre 50% y 70%
+    }
+    else if(baterias[bateria_selc].getmaterial() == "litio"){
+        Nbaterias = ceil((coberturaXcubrir * 1.25)/(baterias[bateria_selc].getCapacidad()*0.75));//el 0.75 es por la profundidad de descarga que en el litio es de entre 70% y 80%
+    }
     std::cout<<"se necesitan "<<Nbaterias<<" baterias"<<std::endl;
     return Nbaterias;
+}
+
+int calcularCosto(panel paneles[], bateria baterias[], inversor inversores[], int panel_selec, int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores){
+    int costoTotal;
+    int costoPaneles;
+    int costoBaterias;
+    int costoInversores;
+    if(total_paneles == 0){
+        std::cout<<"Error: Primero debes calcular el numero de paneles y haber seleccionado un panel"<<std::endl;
+    }
+    if(total_baterias == 0){
+        std::cout<<"Error: primero debes haber seleccionado una bateria"<<std::endl;
+    }
+    if(total_inversores == 0){
+        std::cout<<"Error: Primero debes haber seleccionado Inversores"<<std::endl;
+    }
+    costoPaneles = total_paneles * paneles[panel_selec - 1].getPrecio();
+    costoBaterias = total_baterias * baterias[bateria_select -1].getPrecio();
+    costoInversores = total_inversores * inversores[inversor_selec - 1].getPrecio();
+    costoTotal =  costoPaneles + costoBaterias + costoInversores;
+    return costoTotal;
+}
+
+void mostrarCantidades(panel paneles[], bateria baterias[], inversor inversores[], int panel_selec, int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores){
+    if(total_paneles == 0){
+        std::cout<<"Error: Primero debes calcular el numero de paneles y haber selecionado un pnael"<<std::endl;
+    }
+    if(total_baterias == 0){
+        std::cout<<"Error: Primero debes calcular el numero de Baterias"<<std::endl;
+    }
+    if(total_inversores == 0){
+        std::cout<<"Error: Primero debes calcular el numero de Inversores"<<std::endl;
+    }
+    std::cout<<"------------------------CANTIDADES------------------------"<<std::endl;
+    std::cout<<"__________________________________________________________"<<std::endl;
+    std::cout<<"--Panel solar de "<<paneles[panel_selec].getPotencia()<<" watts "<<paneles[panel_selec].getNombre()<<" "<<paneles[panel_selec].getTecnologia()<<": "<<total_paneles <<std::endl;
+    std::cout<<"--Bateria de "<<baterias[bateria_select].getmaterial()<<" "<<baterias[bateria_select].getCapacidad()<<" watts "<<baterias[bateria_select].getNombre()<<": "<<total_baterias<<std::endl;
+    std::cout<<"--inversor de "<<inversores[inversor_selec].getMaxpoteencia()<<" watts "<<inversores[inversor_selec].getNombre()<<": "<<total_inversores<<std::endl; 
+    std::cout<<"__________________________________________________________"<<std::endl;
 }
