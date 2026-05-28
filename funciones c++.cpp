@@ -1,4 +1,4 @@
-#include "calculadora c++.h"
+#include "calculadora_c++.h"
 
 panel::panel(std::string n, std::string t, std::string tec, int p, float e, int pr){
     nombre = n;
@@ -128,7 +128,7 @@ int seleccionarBateria(bateria baterias[]){
     }
     else{
         std::cout<<"Error: Seleccione una opcion valida"<<std::endl;
-        return -1
+        return -1;
     }
 }
 
@@ -138,7 +138,7 @@ int seleccionarInversores(inversor inversores[]){
     std::cin>>seleccion;
     if(seleccion<=2 && seleccion >=1){
         std::cout<<"seleccion registrada"<<std::endl;
-        return seleccion
+        return seleccion;
     }
     else{
         std::cout<<"Error: Seleccione una opcion valida"<<std::endl;

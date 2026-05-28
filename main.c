@@ -172,7 +172,7 @@ int main(){
 
                 }
 
-            } while (opcion3 != 0);
+            }while (opcion3 != 0);
             
             break;
 
