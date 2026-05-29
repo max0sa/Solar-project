@@ -77,7 +77,7 @@ int calcularCosto(panel paneles[], bateria baterias[], inversor inversores[], in
     int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores);
 
 void mostrarResumen(panel paneles[], bateria baterias[], inversor inversores[], int panel_selec, 
-    int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores,double costoTotal);
+    int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores,int costoTotal);
 
 void mostrarCantidades(panel paneles[], bateria baterias[], inversor inversores[], int panel_selec, int bateria_select, 
     int inversor_selec, int total_paneles, int total_baterias, int total_inversores);
