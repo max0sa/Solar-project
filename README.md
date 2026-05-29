@@ -83,4 +83,8 @@ Actualmente lo que nuestro código es capaz de hacer es lo sigiuiente: mostrar e
 
 Lo que el código le entregará, será un presupuesto acorde a sus preferencias y bastante aproximado a la realidad, debido a que para los precios nos basamos en E-sol, tienda pionera en chile en el rubro de las energías renovables, y suele ser catalogada como una de las opciones más económicas para comprar al por mayor.
 
+## Instrucciones de compilamiento C++
+Pasos a seguir para ejecutar el programa:
+1- `g++ funciones_c++.cpp main.cpp -o main`
+2- `./main`
 
