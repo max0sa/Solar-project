@@ -55,3 +55,13 @@ Pasos a seguir para ejecutar el programa:
 
 ## Pasos a seguir hito 2
 Para el próximo hito se plantea crear nuevas funciones según como vaya progresando el proyecto y las necesidades que estas implican, aplicar retroalimentaciones de profesores/ayudantes, trasladar el proyecto al lenguaje de programación C++ y empezar a trabajar en una interfaz más amigable y fácil de uso para el usuario.
+
+## Avances hito 2
+Actualmente nuestro enfoque sigue siendo facilitar el cálculo de presupuesto y finalmente la venta de un servicio de energía solar a un cliente.
+nos acercaremos a este objetivo esta vez en el hito 2 , de forma que la persona pueda tener una visión clara y ahora más específica de qué se le será instalado, con su correspondiente precio.
+Durante el hito 2 pudimos llevar a cabo el cambio de lenguaje en el proyecto , desde C hacia C++, además pudimos implementar nuevas funciones como lo son : mostrarInversores, potenciaTotalSistema y calcularInversores.
+Dentro del nuevo código definimos 3 tipos de clases para paneles, baterías e inversores. Ayudándonos así a organizar los datos y bajar el nivel de complejidad de los cálculos , ya que cada clase tiene su nombre, precio , energía, etc.
+
+Actualmente lo que nuestro código es capaz de hacer es lo sigiuiente: mostrar el menú de interfaz donde el usuario debe escoger los productos que sean de su preferencia , además debe indicar el consumo eléctrico aproximado que tiene en un mes, para posteriormente indicar cual es el porcentaje de ahorro que el usuario quiere obtener con la compra o instalación de los paneles solares. Lo que el código le entregará, será un presupuesto acorde a sus preferencias y bastante aproximado a la realidad, debido a que para los precios nos basamos en E-sol, tienda pionera en chile en el rubro de las energías renovables, y suele ser catalogada como una de las opciones más económicas para comprar al por mayor.
+
+
