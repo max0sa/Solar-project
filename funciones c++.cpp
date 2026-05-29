@@ -254,20 +254,21 @@ void mostrarResumen(panel paneles[], bateria baterias[], inversor inversores[], 
     int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores,
     double costoTotal){
         std::cout << "Presupuesto \n";
-        std::cout << paneles[panelSelec - 1].nombre << "\n";
-        std::cout << paneles[panelSelec - 1].tipo_panel << "\n";
-        std::cout << paneles[panelSelec - 1].tecnologia << "\n";
-        std::cout << paneles[panelSelec - 1].potencia << "\n";
+        std::cout << paneles[panelSelec - 1].getNombre() << "\n";
+        std::cout << paneles[panelSelec - 1].getTipo() << "\n";
+        std::cout << paneles[panelSelec - 1].getTecnologia() << "\n";
+        std::cout << paneles[panelSelec - 1].getPotencia() << "\n";
         std::cout << total_paneles <<"\n";
         
         std::cout<<"baterias \n";
-        std::cout<< bateria[bateria_select -1].nombre<<"\n";
-        std::cout<< bateria[bateria_select -1].capacidad<<"\n";
+        std::cout<< baterias[bateria_select -1].getNombre()<<"\n";
+        std::cout<< baterias[bateria_select -1].getCapacidad()<<"\n";
         std::cout<< total_baterias <<"\n";
 
         std::cout<<"inversores \n";
-        std::cout<<inversor[inversor_selec -1].nombre<<"\n";
+        std::cout<<inversors[inversor_selec -1].getNombre()<<"\n";
         std::cout<<total_inversores<<"\n";
 
         std::cout<<costoTotal<<"\n";
     }
+    
