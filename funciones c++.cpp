@@ -252,7 +252,7 @@ void mostrarCantidades(panel paneles[], bateria baterias[], inversor inversores[
 
 void mostrarResumen(panel paneles[], bateria baterias[], inversor inversores[], int panelSelec, 
     int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores,
-    double costoTotal){
+    int costoTotal){
         std::cout << "Presupuesto \n";
         std::cout << paneles[panelSelec - 1].getNombre() << "\n";
         std::cout << paneles[panelSelec - 1].getTipo() << "\n";
@@ -269,5 +269,5 @@ void mostrarResumen(panel paneles[], bateria baterias[], inversor inversores[], 
         std::cout<<inversors[inversor_selec -1].getNombre()<<"\n";
         std::cout<<total_inversores<<"\n";
 
-        std::cout<<costoTotal<<"\n";
+        std::cout<<costoTotal<<" %CLP\n";
     }
