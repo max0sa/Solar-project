@@ -125,7 +125,7 @@ int main(){
 
             case 5: //calcular cantidad de paneles
             do{
-                std::cout<<"\nPara calcular la cantidad de paneles necesitamos saber en que zona de chile se decean usar\n";
+                std::cout<<"\nPara calcular la cantidad de paneles necesitamos saber en que zona de chile se desean usar\n";
                 std::cout<<"1.I región\n";
                 std::cout<<"2.II región\n";
                 std::cout<<"3.III región\n";

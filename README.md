@@ -57,15 +57,29 @@ Pasos a seguir para ejecutar el programa:
 Para el próximo hito se plantea crear nuevas funciones según como vaya progresando el proyecto y las necesidades que estas implican, aplicar retroalimentaciones de profesores/ayudantes, trasladar el proyecto al lenguaje de programación C++ y empezar a trabajar en una interfaz más amigable y fácil de uso para el usuario.
 
 ## Avances hito 2
-Actualmente nuestro enfoque sigue siendo facilitar el cálculo de presupuesto y finalmente la venta de un servicio de energía solar a un cliente.
 
-Nos acercaremos a este objetivo esta vez en el hito 2 , de forma que la persona pueda tener una visión clara y ahora más específica de qué se le será instalado, con su correspondiente precio.
+## Objetivo general
+El enfoque se mantiene en precisar el cálculo de presupuesto, para esto se integran nuevas variables cómo baterías e inversores.
 
-Durante el hito 2 pudimos llevar a cabo el cambio de lenguaje en el proyecto , desde C hacia C++, además pudimos implementar nuevas funciones como lo son : mostrarInversores, potenciaTotalSistema y calcularInversores.
+## Objetivos específicos
+  - Diseñar y desarrollar nuestro código adaptado al lenguaje de programación C++ aplicando *programación orientada a objetos*. 
+  - Profundizar el cálculo y diseño implementando nuevas variables cómo las baterías e inversores.
+  - Desarrollar la función _mostrarBaterias_ la cual muestre el catálogo de baterías. 
+  - Desarrollar la función _mostrarInversores_ la cual muestra el catálogo de inversores. 
+  - Desarrollar la función _potenciaTotalSistema_ la cual es necesaria para el cálculo en la función _calcularInversores_. 
+  - Desarrollar la función _calcularBaterias_ que calcula la cantidad de baterías necesarias según el consumo, la cobertura y la capacidad de la batería. 
+  - Desarrollar la función _calcularInversores_ la cual calcula cantidad de inversores necesarios según la potencia del sistema. 
+  - Actualizar la función _calcularCosto_. 
+  - Actualizar la función _mostrarResumen_ según las nuevas variables baterías e inversores. 
+
+## Trabajo realizado
+Se migró al lenguaje de programación C++ rediseñando el código aplicando programación orientada objetos, con clases como paneles, inversores y baterías, cada una de ellas con sus respectivas características cómo nombre, precio, energía, etc... Se implementaron constructores que facilitan la creación y asignación de valores.
+
+Se implementaron nuevas funciones como _mostrarInversores_, _potenciaTotalSistema_ y _calcularInversores_.
 
 Dentro del nuevo código definimos 3 tipos de clases para paneles, baterías e inversores. Ayudándonos así a organizar los datos y bajar el nivel de complejidad de los cálculos , ya que cada clase tiene su nombre, precio , energía, etc.
 
-Actualmente lo que nuestro código es capaz de hacer es lo sigiuiente: mostrar el menú de interfaz donde el usuario debe escoger los productos que sean de su preferencia , además debe indicar el consumo eléctrico aproximado que tiene en un mes, para posteriormente indicar cual es el porcentaje de ahorro que el usuario quiere obtener con la compra o instalación de los paneles solares.
+Actualmente lo que nuestro código es capaz de hacer es lo sigiuiente: mostrar el menú de interfaz donde el usuario debe escoger los productos que sean de su preferencia, además debe indicar el consumo eléctrico aproximado que tiene en un mes, para posteriormente indicar cual es el porcentaje de ahorro que el usuario quiere obtener con la compra o instalación de los paneles solares.
 
 Lo que el código le entregará, será un presupuesto acorde a sus preferencias y bastante aproximado a la realidad, debido a que para los precios nos basamos en E-sol, tienda pionera en chile en el rubro de las energías renovables, y suele ser catalogada como una de las opciones más económicas para comprar al por mayor.
 
