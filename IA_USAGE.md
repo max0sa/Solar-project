@@ -6,3 +6,4 @@ A continuación los links de las conversaciones con su respectivo contexto:
 - [ChatGPT](https://chatgpt.com/share/69ea888c-f860-83e9-b852-789161697ceb) (Compilación Git)(José Contreras)
 - [ChatGPT](https://chatgpt.com/share/69ea6810-1128-83e9-86eb-e75e2ac6080b) (Duda funcionamient GitHub)
 - [ChatGPT]( https://chatgpt.com/share/69eb5d8a-1454-83e9-aecb-9a5708738d7e) (Equivalent round python en C)
+- [ChatGPT](https://chatgpt.com/share/6a1a01fc-87c8-83e9-96d4-c37b5305f611) (Duda equivalente round de python en C++)(Maximiliano Ossa)
