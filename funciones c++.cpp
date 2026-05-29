@@ -201,13 +201,13 @@ int potenciaTotalSistema(int consumo, int lugar){
 
 int calcularInversores(panel paneles[],int consumo, int lugar, double cobertura, int panel_selc, int inversorSelec, inversor inversores[]){
     double potencia = potenciaTotalSistema(consumo, lugar);
-    int nPaneles = calcularNpaneles(paneles,consumo,cobertura,panel_selc,lugar);
-    double pReal = nPaneles * (paneles[panel_selc -1].getPotencia()  /1000.0);//ptoencia real instalada
-    double maxPanelesSerie = inversores[inversorSelec -1].getMaxpoteencia()/35; //calculado con el voltaje máximo que el panel puede generar
-    int stringsTotales = nPaneles/maxPanelesSerie; //cantidad de hileras de paneles del proyecto
-    int maxStringParalelo = inversores[inversorSelec -1].getImax()/15; //limite de cadenas en paralelo por cada entrada MPPT
-    int capacidadInv = maxStringParalelo * inversores[inversorSelec - 1].getMppt();//capacidad de strings que puede recibir solo un inversor    
-    int nInversores = stringsTotales/capacidadInv; //total de inversores 
+    double nPaneles = calcularNpaneles(paneles, consumo, cobertura, panel_selc, lugar);     
+    double pReal = nPaneles * (paneles[panel_selc - 1].getPotencia() / 1000.0);//ptoencia real instalada
+    double maxPanelesSerie = inversores[inversorSelec - 1].getMaxpoteencia() / 35.0; //calculado con el voltaje máximo que el panel puede generar
+    int stringsTotales = std::ceil(nPaneles / maxPanelesSerie);//cantidad de hileras de paneles del proyecto
+    double maxStringParalelo = (double)inversores[inversorSelec - 1].getImax() / 15.0;//limite de cadenas en paralelo por cada entrada MPPT
+    int capacidadInv = std::ceil(maxStringParalelo) * inversores[inversorSelec - 1].getMppt();//capacidad de strings que puede recibir solo un inversor    
+    int nInversores = std::ceil((double)stringsTotales / capacidadInv);    //total de inversores 
     return nInversores;
     }
 
@@ -244,9 +244,9 @@ void mostrarCantidades(panel paneles[], bateria baterias[], inversor inversores[
     }
     std::cout<<"------------------------CANTIDADES------------------------"<<std::endl;
     std::cout<<"__________________________________________________________"<<std::endl;
-    std::cout<<"--Panel solar de "<<paneles[panel_selec].getPotencia()<<" watts "<<paneles[panel_selec].getNombre()<<" "<<paneles[panel_selec].getTecnologia()<<": "<<total_paneles <<std::endl;
-    std::cout<<"--Bateria de "<<baterias[bateria_select].getmaterial()<<" "<<baterias[bateria_select].getCapacidad()<<" watts "<<baterias[bateria_select].getNombre()<<": "<<total_baterias<<std::endl;
-    std::cout<<"--inversor de "<<inversores[inversor_selec].getMaxpoteencia()<<" watts "<<inversores[inversor_selec].getNombre()<<": "<<total_inversores<<std::endl; 
+    std::cout<<"--Panel solar de "<<paneles[panel_selec -1].getPotencia()<<" watts "<<paneles[panel_selec -1].getNombre()<<" "<<paneles[panel_selec -1].getTecnologia()<<": "<<total_paneles <<std::endl;
+    std::cout<<"--Bateria de "<<baterias[bateria_select -1].getmaterial()<<" "<<baterias[bateria_select -1].getCapacidad()<<" watts "<<baterias[bateria_select -1].getNombre()<<": "<<total_baterias<<std::endl;
+    std::cout<<"--inversor de "<<inversores[inversor_selec-1].getMaxpoteencia()<<" watts "<<inversores[inversor_selec -1].getNombre()<<": "<<total_inversores<<std::endl; 
     std::cout<<"__________________________________________________________"<<std::endl;
 }
 
@@ -271,4 +271,3 @@ void mostrarResumen(panel paneles[], bateria baterias[], inversor inversores[], 
 
         std::cout<<costoTotal<<"\n";
     }
-    
