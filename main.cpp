@@ -77,6 +77,9 @@ int main(){
                     case 3:
                     mostrarPaneles(paneles,10,3);
                     panelSelec = seleccionarPanel(paneles);
+                    if(panelSelec != -1){
+                        opcion2 = 0;
+                    }
                     break;
 
                     case 0:
@@ -96,7 +99,7 @@ int main(){
                 std::cout<<"\nIngrese su consumo mensual (kW): ";
                 std::cin >> consumo;
                 if (consumo <= 0){
-                    std::cout <<"\n**no se pueden ingresar consumos negativos o nulos**\n";
+                    std::cout <<"\n**No se pueden ingresar consumos negativos o nulos**\n";
                 }
             }while (consumo <= 0);
 
@@ -104,7 +107,7 @@ int main(){
                 std::cout << "\nIngrese que porcentaje de su consumo desea cubrir: ";
                 std::cin >> cobertura;
                 if (cobertura < 10 || cobertura > 100){
-                    std::cout<<"\n**la cobertura debe ser entre 10-100**\n";
+                    std::cout<<"\n**La cobertura debe ser entre 10-100**\n";
                 }
 
             }while(cobertura < 10 || cobertura > 100);
@@ -143,6 +146,7 @@ int main(){
 
                 if(opcion3 >= 1 && opcion3 <= 14){
                     totalPaneles = calcularNpaneles(paneles, consumo,cobertura,panelSelec, opcion3);
+                    std::cout << "Se necesitan " << totalPaneles << " paneles" <<std::endl;
                     lugarSelec = opcion3;
                     break;
                 }
@@ -158,7 +162,7 @@ int main(){
 
             case 7:  //Calcular costo
             valorTotal = calcularCosto(paneles, baterias, inversores,panelSelec, bateriaSelec, inversorSelec, totalPaneles, totalBaterias, totalInversores);
-            std::cout << "El costo total es: "<<valorTotal<<" $CLP\n";
+            std::cout << "\nEl costo estimado total es: $"<<valorTotal<<"CLP\n";
             break;
 
             case 8: //mostrar resumen

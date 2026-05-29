@@ -1,5 +1,5 @@
-#ifndef CALCULADORAC++_H
-#define CALCULADORAC++_H
+#ifndef CALCULADORACPP_H
+#define CALCULADORACPP_H
 
 #include <iostream>
 #include <string>
@@ -42,14 +42,14 @@ class bateria{
 class inversor{
     private:
         std::string nombre;
-        int maxpotencia;
+        int maxPotencia;
         int precio;
         int imax;
         int mppt;
     public: 
         inversor(std::string n, int m, int pr, int i, int mppt);
         std::string getNombre();
-        int getMaxpoteencia();
+        int getMaxPotencia();
         int getPrecio();
         int getImax();
         int getMppt();
@@ -82,4 +82,5 @@ void mostrarResumen(panel paneles[], bateria baterias[], inversor inversores[], 
 void mostrarCantidades(panel paneles[], bateria baterias[], inversor inversores[], int panel_selec, int bateria_select, 
     int inversor_selec, int total_paneles, int total_baterias, int total_inversores);
     
+int potenciaTotalSistema(int consumo, int lugar);
 #endif
