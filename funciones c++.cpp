@@ -250,9 +250,24 @@ void mostrarCantidades(panel paneles[], bateria baterias[], inversor inversores[
     std::cout<<"__________________________________________________________"<<std::endl;
 }
 
-void mostrarResumen(panel paneles[], bateria baterias[], inversor inversores[], int panel_selec, 
-    int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores, double costoTotal){
-    
-    // Función vacía temporalmente para que compile mientras mi compañero la termina
-    std::cout << "\n(Resumen en construccion...)\n";
-}
+void mostrarResumen(panel paneles[], bateria baterias[], inversor inversores[], int panelSelec, 
+    int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores,
+    double costoTotal){
+        std::cout << "Presupuesto \n";
+        std::cout << paneles[panelSelec - 1].nombre << "\n";
+        std::cout << paneles[panelSelec - 1].tipo_panel << "\n";
+        std::cout << paneles[panelSelec - 1].tecnologia << "\n";
+        std::cout << paneles[panelSelec - 1].potencia << "\n";
+        std::cout << total_paneles <<"\n";
+        
+        std::cout<<"baterias \n";
+        std::cout<< bateria[bateria_select -1].nombre<<"\n";
+        std::cout<< bateria[bateria_select -1].capacidad<<"\n";
+        std::cout<< total_baterias <<"\n";
+
+        std::cout<<"inversores \n";
+        std::cout<<inversor[inversor_selec -1].nombre<<"\n";
+        std::cout<<total_inversores<<"\n";
+
+        std::cout<<costoTotal<<"\n";
+    }
