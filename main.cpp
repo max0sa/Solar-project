@@ -158,7 +158,7 @@ int main(){
 
             case 7:  //Calcular costo
             valorTotal = calcularCosto(paneles, baterias, inversores,panelSelec, bateriaSelec, inversorSelec, totalPaneles, totalBaterias, totalInversores);
-            std::cout << "El costo total es: "<<valorTotal<<"%\n";
+            std::cout << "El costo total es: "<<valorTotal<<" $CLP\n";
             break;
 
             case 8: //mostrar resumen
