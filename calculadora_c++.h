@@ -44,11 +44,15 @@ class inversor{
         std::string nombre;
         int maxpotencia;
         int precio;
+        int imax;
+        int mppt;
     public: 
-        inversor(std::string n, int m, int pr);
+        inversor(std::string n, int m, int pr, int i, int mppt);
         std::string getNombre();
         int getMaxpoteencia();
         int getPrecio();
+        int getImax();
+        int getMppt();
 };
 
 void mostrarPaneles(panel paneles[], int n, int opcionTipo);
@@ -67,14 +71,13 @@ int calcularNpaneles(panel paneles[], int consumo,double cobertura, int panel_se
 
 int calcularBaterias(bateria baterias[],int consumo,double cobertura,int bateria_selc);
 
-int calcularInversores(inversor ibversores[], int potensiaSis,int inversor_select);
+int calcularInversores(panel paneles[], int consumo, int lugar, double cobertura, int panel_selc, int inversorSelec, inversor inversores[]);
 
 int calcularCosto(panel paneles[], bateria baterias[], inversor inversores[], int panel_selec, 
     int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores);
 
 void mostrarResumen(panel paneles[], bateria baterias[], inversor inversores[], int panel_selec, 
-    int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores,
-    double costoTotal);
+    int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores,double costoTotal);
 
 void mostrarCantidades(panel paneles[], bateria baterias[], inversor inversores[], int panel_selec, int bateria_select, 
     int inversor_selec, int total_paneles, int total_baterias, int total_inversores);

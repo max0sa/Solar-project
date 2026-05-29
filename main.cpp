@@ -1,4 +1,4 @@
-#include <calculadora_c++.h>
+#include "calculadora_c++.h"
 
 int main(){
     int opcion1;
@@ -13,8 +13,9 @@ int main(){
     int totalBaterias = 0;
     int totalInversores = 0;
     int valorTotal = 0;
+    int lugarSelec = -1;
 
-    class panel paneles[10] ={
+    panel paneles[10] ={
         {"Restarsolar", "monocristalino", "celda grado A", 250, 23.5, 127415},
         {"Canadian Solar", "monocristalino", "mono perc", 410, 21, 114750},
         {"DAH Solar", "monocristalino", "mono perc", 450, 20.7, 187200},
@@ -27,14 +28,14 @@ int main(){
         {"Sine Energy", "policristalino", "standard poly",340, 16.2, 128990},
     };
 
-    class bateria baterias[2]={
+    bateria baterias[2]={
         bateria("Deep Cycle", "gel",1200, 115000),
         bateria("Pylontech","litio",2400, 480000),
     };
 
-    class inversor inversores[2]={
-        inversor("Voltronic 3kW", 3000, 320000),
-        inversor("Growatt 5kW", 5000, 580000),
+    inversor inversores[2]={
+        inversor("Voltronic 3kW", 3000, 320000,27,1),
+        inversor("Growatt 5kW", 5000, 580000,13,2),
     };
 
     std::cout<<"Bienvenido a Solar Proyect\n";
@@ -140,8 +141,10 @@ int main(){
                 std::cout<<"Seleccione un opcion: ";
                 std::cin >> opcion3;
 
-                if(opcion3 >= 1 || opcion3 <= 14){
+                if(opcion3 >= 1 && opcion3 <= 14){
                     totalPaneles = calcularNpaneles(paneles, consumo,cobertura,panelSelec, opcion3);
+                    lugarSelec = opcion3;
+                    break;
                 }
 
                 }while(opcion3 != 0);
@@ -149,7 +152,7 @@ int main(){
 
             case 6:  //Mostrar cantidades
             totalBaterias = calcularBaterias(baterias, consumo, cobertura,bateriaSelec);
-            totalInversores =calcularInversores(inversores,potensiaSis,inversorSelec);
+            totalInversores = calcularInversores(paneles, consumo, lugarSelec, cobertura, panelSelec, inversorSelec, inversores);
             mostrarCantidades(paneles, baterias, inversores, panelSelec, bateriaSelec, inversorSelec, totalPaneles, totalBaterias, totalInversores);
             break;
 
