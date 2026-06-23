@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1211</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="BTNpaneles">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>230</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Seleccione su panel</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="SBCobertura">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>170</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="SBConsumo">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>98</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>20000</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BTNbaterias">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>290</y>
+      <width>151</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Seleccione su batería</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BTNinversores">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>350</y>
+      <width>151</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Seleccione su inversor</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="CBregiones">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>410</y>
+      <width>211</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <item>
+     <property name="text">
+      <string>Seleccione su región</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>I. Región de Tarapacá</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>II. Región de Antofagasta</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>III. Región de Atacama</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>IV. Región de Coquimbo</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>V. Región de Valparaíso</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Región Metropolitana de Santiago</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>VI. Región del Libertador General Bernardo O'Higgins</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>VII. Región del Maule</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>VIII. Región del Biobío</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>IX. Región de La Araucanía</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>X. Región de Los Lagos</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>XI. Región de Aysén del General Ibañez del Campo</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>XII. Región de Magallanes y Antártica Chilena</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>XIV. Región de los Ríos</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>XV. Región de Arica y Parinacota</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="BTNcalcular">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>490</y>
+      <width>90</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Calcular</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>70</y>
+      <width>251</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ingrese su consumo mensual (kW)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>140</y>
+      <width>351</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ingrese que porcentaje de su consumo desea cubrir</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>70</y>
+      <width>151</width>
+      <height>411</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>70</y>
+      <width>371</width>
+      <height>411</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>0</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Solar Project</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1211</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
