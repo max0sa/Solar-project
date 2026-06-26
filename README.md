@@ -88,3 +88,42 @@ Pasos a seguir para ejecutar el programa:
 1- `g++ funciones_c++.cpp main.cpp -o main`
 2- `./main`
 
+
+## Avances Hito 3
+
+## Objetivo general
+El objetivo de este hito es desarrollar una interfaz gráfica para el programa mediante QtCreator.
+
+## Objetivos Específicos
+  - Diseñar y trasladar el código realizado en el hito 2 a un formato compatible para el uso de signals y slots en QtCreator.
+  - Crear y diseñar las interacciones que el usuario va a enfrentarse en nuestro programa.
+  - Crear funciones que calculen la huella de carbono evitada y el ahorro mensual estimado.
+  - Crear función que permita descargar en PDF el presupuesto generado por el programa.
+
+## Trabajo realizado
+Se realizó un boceto en el cuál se organizan las interacciones necesarias para que el programa funcione y se diseñaron para que la interfaz sea lo más intuitiva y accesible posible.
+
+![image alt](https://github.com/max0sa/Solar-project/blob/a2c4cd04401d60239e6c490de5e4286781e34060/images/Captura%20de%20pantalla%202026-06-23%20155903.png)
+
+Se trabajó en las funciones que permiten calcular la huella de carbono evitada y el ahorro de dinero estimado mensualmente.
+
+Se realizó la interfaz gráfica en QtCreator haciendo uso de QtWidgets cómo SpinBox, TextEdit, label y pushbutton estos se conectaron a sus funciones mediante su respectiva signal. El widget de spinBox se ocupa en las funciones de elegir panel, batería e inversor, desplegando el catalogo de estos y en la función de elegir región. El widget textEdit se ocupa en el modo lectura y va mostrando al usuario sus selecciones y el presupuesto final entregado. El widget label se ocupa para introducir texto que le permita al usuario comprender mejor cómo ocupar el programa. Por último los push buttons son ocupados para abrir la ventana emergente en las selecciones de panel, batería e inversores.
+![image alt](https://github.com/max0sa/Solar-project/blob/a2c4cd04401d60239e6c490de5e4286781e34060/images/Captura%20de%20pantalla%202026-06-26%20175725.png)
+
+## Fórmulas 
+  - Calcular número de paneles solares:
+    - Consumo Diario: (Consumo mensual / 30) * 1000 * (Porcentaje de cobertura / 100)
+    - Cantidad de paneles: Consumo Diario / (Potencia del panel * horas pico de sol de la región)
+  - Calculo de baterías:
+    - Energía diaria: (Consumo mensual / 30) * 1000 * (Porcentaje de cobertura / 100)
+    - Cantidad de baterías: Energía diaria / Capacidad de batería (en Watts/hora)
+  - Calculo de inversores:
+    - Potencia total paneles: Número de paneles requeridos * Potencia individual del panel seleccionado
+    - Cantidad de inversores: Potencia total paneles / máxima potencia soportada por el inversor
+  - Calculo costo total del proyecto:
+    - Costo total = (n° paneles * Precio panel) + (n° baterias * Precio bateria) + (n° inversores * precio inversor)
+
+## Comentarios recibidos
+En la presentación realizada el día 24 de Junio se comentó la posibilidad de sacar más metricas con los datos que se solicitan en el programa y se retroalimentó acerca de la abundancia de texto en el apoyo visual. Es por esto que añadimos al resumen entregado por nuestro programa el dinero que se ahorra, este se saca mediante el valor del Kwh multiplicado por la cantidad de Kwh que se espera cubrir. Se agregó la huella de carbono evitada que se calcula multiplicando los Kwh ahorrado por los kg de CO2 que hay en un Kwh.
+## Conclusiones
+Durante el transcurso del proyecto logramos cumplir con nuestro objetivo de crear un programa que facilitara la planificación de la instalación de un sistema fotovoltaico, el cual trajo consigo varias dificultades como el uso de lenguajes como c y c++ los cuales no conocíamos, el uso de punteros o clases para completar lo requerido con los hitos, el uso de github ya que era una plataforma nueva para nosotros e incluso la implementación de la interfaz grafica mediante Qt creator nos trajo ciertas dificultades, a pesar de todo aprendimos no solo nuevos lenguajes de programación sino que también a el como llevar de una buena manera un proyecto grupal. En caso de darle continuación a este proyecto, se puede especificar aún más el cálculo del precio y materiales de un proyecto de energía fotovoltáica, agregando variables cómo los metros de cables, altura, etc..
