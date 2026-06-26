@@ -199,7 +199,7 @@ void MainWindow::on_BTNcalcular_clicked()
     resumen += QString("- Ahorro mensual estimado: $%1 CLP\n").arg(ahorroXmes);
     resumen += "====================================\n";
     resumen += "*El presupuestos ha sido calculado con precios refeerencilaes con fecha 22/4/2026*\n";
-    resumen += "rebice los precios actuales en https://www.solartex.cl";
+    resumen += "revise los precios actuales en https://www.solartex.cl";
 
     ui->presu_tex->setText(resumen);
 }
