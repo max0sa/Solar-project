@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QPrinter>
+#include <QPrintDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -34,8 +36,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // Dejo los Qtext pa que solo sea lectura
-    ui->textEdit->setReadOnly(true);   // este es el de selecciones
-    ui->textEdit_2->setReadOnly(true); // y este del del resumen
+    ui->res_cal->setReadOnly(true);   // este es el de selecciones
+    ui->presu_tex->setReadOnly(true); // y este del del resumen
+    connect(ui->SBConsumo, &QSpinBox::valueChanged, this, &MainWindow::actualizarVistaSelecciones);
+    connect(ui->SBCobertura, &QSpinBox::valueChanged, this, &MainWindow::actualizarVistaSelecciones);
+    connect(ui->SBCuenta, &QSpinBox::valueChanged, this, &MainWindow::actualizarVistaSelecciones);
+    connect(ui->CBregiones, &QComboBox::currentIndexChanged, this, &MainWindow::actualizarVistaSelecciones);
     actualizarVistaSelecciones();
 }
 
@@ -98,7 +104,25 @@ void MainWindow::on_BTNinversores_clicked()
 //DEP Gaspi (2002-2026) quepena
 void MainWindow::actualizarVistaSelecciones()
 {
-    QString texto = "=== SELECCIONES ===\n\n";
+    QString texto = "========================\n";
+    texto += "DATOS A CALCULAR\n";
+    texto += "========================\n\n";
+    texto += "------------------------------------------\n";
+    texto += "   DATOS USUARIO\n";
+    texto += "------------------------------------------\n";
+    texto += QString("- Consumo: %1 KWh/mes\n").arg(ui->SBConsumo->value());
+    texto += QString("- Cobertura: %1%\n").arg(ui->SBCobertura->value());
+    texto += QString("- Cuenta de luz: $%1\n").arg(ui->SBCuenta->value());
+
+    if(ui->CBregiones->currentIndex() == 0){
+        texto += "- Region: No seleccionada\n";
+    } else{
+        texto += QString("- Region: %1\n").arg(ui->CBregiones->currentText());
+    }
+
+    texto += "\n------------------------------------------\n";
+    texto+= " COMPONENTES ELEGIDOS\n";
+    texto += "------------------------------------------\n\n";
 
     if (panelSelec != -1) {
         texto += QString("- Panel: %1 (%2W)\n").arg(QString::fromStdString(paneles[panelSelec - 1].getNombre())).arg(paneles[panelSelec - 1].getPotencia());
@@ -118,7 +142,9 @@ void MainWindow::actualizarVistaSelecciones()
         texto += "- Inversor: Sin seleccionar\n";
     }
 
-    ui->textEdit->setText(texto);
+    texto += "========================\n";
+
+    ui->res_cal->setText(texto);
 }
 
 // Calcula cuando apretan el boton
@@ -127,6 +153,7 @@ void MainWindow::on_BTNcalcular_clicked()
     int consumo = ui->SBConsumo->value();
     double cobertura = ui->SBCobertura->value();
     lugarSelec = ui->CBregiones->currentIndex();
+    int cuenta = ui->SBCuenta->value();
 
     // Este sapo tira las warnings por si faltan datos o no son validos
     if (consumo <= 0) {
@@ -145,23 +172,51 @@ void MainWindow::on_BTNcalcular_clicked()
         QMessageBox::warning(this, "Faltan Datos", "Por favor, seleccione una Región válida del listado.");
         return;
     }
+    if(cuenta <= 0){
+        QMessageBox::warning(this,"Faltan Datos","Por favor ingrese un valor de cuenta de luz valido mayor a $0.");
+    }
 
     // calculos que los sacamos del archivo "funciones_c++.cpp"
     int totalPaneles = calcularNpaneles(paneles, consumo, cobertura, panelSelec, lugarSelec);
     int totalBaterias = calcularBaterias(baterias, consumo, cobertura, bateriaSelec);
     int totalInversores = calcularInversores(paneles, consumo, lugarSelec, cobertura, panelSelec, inversorSelec, inversores);
     int valorTotal = calcularCosto(paneles, baterias, inversores, panelSelec, bateriaSelec, inversorSelec, totalPaneles, totalBaterias, totalInversores);
+    int huellaEvitada = huellaDeCarbono(consumo, lugarSelec);
+    int ahorroXmes = ahorroMensual(consumo, lugarSelec, cuenta);
 
     // En el otro qtext hacemos el resumen
     QString resumen = "====================================\n";
     resumen += "               PRESUPUESTO SOLAR\n";
-    resumen += "====================================\n\n";
+    resumen += "====================================\n";
     resumen += QString("- Paneles Necesarios:\n  %1 unidades de %2W (%3)\n\n").arg(totalPaneles).arg(paneles[panelSelec - 1].getPotencia()).arg(QString::fromStdString(paneles[panelSelec - 1].getNombre()));
     resumen += QString("- Baterías Necesarias:\n  %1 unidades de tipo %2 (%3)\n\n").arg(totalBaterias).arg(QString::fromStdString(baterias[bateriaSelec - 1].getmaterial())).arg(QString::fromStdString(baterias[bateriaSelec - 1].getNombre()));
     resumen += QString("- Inversores Necesarios:\n  %1 unidades de %2W (%3)\n\n").arg(totalInversores).arg(inversores[inversorSelec - 1].getMaxPotencia()).arg(QString::fromStdString(inversores[inversorSelec - 1].getNombre()));
     resumen += "====================================\n";
     resumen += QString(" El costo estimado es de: $%1 CLP\n").arg(valorTotal);
     resumen += "====================================\n";
+    resumen += QString("===IMPACTO Y AHORRO ESTIMADO===\n");
+    resumen += QString("- Huella de carbono evitada: %1 kg de CO2 al mes\n").arg(huellaEvitada);
+    resumen += QString("- Ahorro mensual estimado: $%1 CLP\n").arg(ahorroXmes);
+    resumen += "====================================\n";
+    resumen += "*El presupuestos ha sido calculado con precios refeerencilaes con fecha 22/4/2026*\n";
+    resumen += "rebice los precios actuales en https://www.solartex.cl";
 
-    ui->textEdit_2->setText(resumen);
+    ui->presu_tex->setText(resumen);
 }
+void MainWindow::on_BTNimprimir_clicked()
+{
+    if (ui->presu_tex->toPlainText().trimmed().isEmpty()){
+        QMessageBox::warning(this,"Aviso","Por favor, primero calcule el presupuesto para poder imprimirlo o exportarlo.");
+        return;
+    }
+    QPrinter impresora(QPrinter::ScreenResolution);
+
+    QPrintDialog ventanaImpresion(&impresora, this);
+    ventanaImpresion.setWindowTitle("Imprimir o Guardar Presupuesto como PDF");
+
+    if(ventanaImpresion.exec() == QDialog::Accepted){
+        ui->presu_tex->print(&impresora);
+        QMessageBox::information(this, "operacion Exitosa", "El presupuesto ha sido procesado correctamente.");
+    }
+}
+

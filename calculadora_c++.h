@@ -83,4 +83,8 @@ void mostrarCantidades(panel paneles[], bateria baterias[], inversor inversores[
     int inversor_selec, int total_paneles, int total_baterias, int total_inversores);
     
 int potenciaTotalSistema(int consumo, int lugar);
+
+int huellaDeCarbono(int consumo, int lugar);
+
+int ahorroMensual(int consumo, int lugar, int cuenta);
 #endif

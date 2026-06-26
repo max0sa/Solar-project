@@ -23,6 +23,7 @@ private slots:
     void on_BTNbaterias_clicked();
     void on_BTNinversores_clicked();
     void on_BTNcalcular_clicked();
+    void on_BTNimprimir_clicked();
 
 private:
     Ui::MainWindow *ui;

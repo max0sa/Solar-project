@@ -254,6 +254,26 @@ int calcularCosto(panel paneles[], bateria baterias[], inversor inversores[], in
     return costoTotal;
 }
 
+int huellaDeCarbono(int consumo, int lugar){ // esta funcion es la que calcula cuanta emision es hebitada con la implementacion del sistema
+    double poten = potenciaTotalSistema(consumo,lugar); // en kw
+    double horas_pico[14] = {4.554, 4.828, 4.346, 4.258, 3.570, 3.520, 3.676,3.672, 3.475, 3.076, 2.626,2.603, 2.107,1.563};
+    double factorRendimiento = 0.77;
+    double factorEmision = 0.2466; //factorEmision es el factor de emision con el cual se calcula la cantidad de kilogramos de CO2 que hay en un kwh, en resumen lo que se evita por cada kwh
+    double energiaMensual = poten * horas_pico[lugar - 1] * factorRendimiento * 30; // ahora tenemos KWh al mes
+    int huella = std::ceil(energiaMensual*factorEmision);
+    return huella;
+}
+
+int ahorroMensual(int consumo, int lugar, int cuenta){
+    if (consumo == 0){
+        return 0;
+    }
+    double tarifa = cuenta/consumo; //es cuanto le cuensta un kwh al usuario segun su cuenta de luz
+    int produccionXdia = potenciaTotalSistema(consumo,lugar);
+    int ahorro = std::ceil((produccionXdia * 30) * tarifa); // el 30 es por la duracion promedio de un mes
+    return ahorro;
+}
+
 void mostrarCantidades(panel paneles[], bateria baterias[], inversor inversores[], int panel_selec, int bateria_select, int inversor_selec, int total_paneles, int total_baterias, int total_inversores){
     if(panel_selec <= -1){
         std::cout<<"ERROR: Primero debes seleccionar un panel"<<std::endl;
